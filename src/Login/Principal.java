@@ -14,11 +14,11 @@ import javax.swing.JOptionPane;
  * @author FANNY
  */
 public class Principal extends javax.swing.JFrame {
+    // String ruta = "";
 
-    String ruta = "";
     URL url = null;
     ImageIcon icon = null;
-    
+
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -36,17 +36,24 @@ public class Principal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lblOpcion = new javax.swing.JLabel();
         jcbOpciones = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lstListado = new javax.swing.JList<>();
+        btnLista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblOpcion.setFont(new java.awt.Font("Comic Sans MS", 0, 8)); // NOI18N
+        lblOpcion.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         lblOpcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblOpcion.setText("SELECCIONE \nUNA \nOPCION");
+        lblOpcion.setText("SELECCIONE  UNA  OPCION");
+        lblOpcion.setToolTipText("");
+        lblOpcion.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lblOpcion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblOpcion.setMaximumSize(new java.awt.Dimension(128, 128));
         lblOpcion.setMinimumSize(new java.awt.Dimension(128, 128));
-        jPanel2.add(lblOpcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 128, 128));
+        lblOpcion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jPanel2.add(lblOpcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 190, 190));
 
         jcbOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
         jcbOpciones.addActionListener(new java.awt.event.ActionListener() {
@@ -54,17 +61,34 @@ public class Principal extends javax.swing.JFrame {
                 jcbOpcionesActionPerformed(evt);
             }
         });
-        jPanel2.add(jcbOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
+        jPanel2.add(jcbOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, -1, -1));
+
+        lstListado.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Opción 1", "Opción 2", "Opción 3" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(lstListado);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 110, 110));
+
+        btnLista.setText("OPCION");
+        btnLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
         );
 
         pack();
@@ -73,40 +97,85 @@ public class Principal extends javax.swing.JFrame {
     private void jcbOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbOpcionesActionPerformed
         // TODO add your handling code here:
         int op = jcbOpciones.getSelectedIndex();
-        
+        String cadena = jcbOpciones.getSelectedItem().toString();
+
         switch (op) {
-            case 0: 
-                JOptionPane.showMessageDialog(null,"Número 1",
+            case 0:
+                this.mostrarImagen("/imagenes/Dancing.png", op + 1, cadena);
+                JOptionPane.showMessageDialog(null, "Opción 1",
                         "Opcion Seleccionada", JOptionPane.INFORMATION_MESSAGE);
-                ruta = "/imagenes/Dancing.png";
+                /* ruta = "/imagenes/Dancing.png";
                 url = this.getClass().getResource(ruta);
                 icon = new ImageIcon(url);
                 lblOpcion.setText(null);
                 lblOpcion.setIcon(icon);
+                 */
                 break;
             case 1:
-                JOptionPane.showMessageDialog(null,"Número 1",
+                this.mostrarImagen("/imagenes/Happy.png", op + 1, cadena);
+                JOptionPane.showMessageDialog(null, "Opción 2",
                         "Opcion Seleccionada", JOptionPane.INFORMATION_MESSAGE);
-                ruta = "/imagenes/Dancing.png";
+                /*  ruta = "/imagenes/Dancing.png";
                 url = this.getClass().getResource(ruta);
                 icon = new ImageIcon(url);
                 lblOpcion.setText(null);
-                lblOpcion.setIcon(icon);
+                lblOpcion.setIcon(icon); */
                 break;
             case 2:
-                JOptionPane.showMessageDialog(null,"Número 1",
+                this.mostrarImagen("/imagenes/Minion.png", op + 1, cadena);
+                JOptionPane.showMessageDialog(null, "Opción 3",
                         "Opcion Seleccionada", JOptionPane.INFORMATION_MESSAGE);
-                ruta = "/imagenes/Dancing.png";
+                /* ruta = "/imagenes/Dancing.png";
                 url = this.getClass().getResource(ruta);
                 icon = new ImageIcon(url);
                 lblOpcion.setText(null);
-                lblOpcion.setIcon(icon);
+                lblOpcion.setIcon(icon); */
                 break;
             default:
                 throw new AssertionError();
         }
     }//GEN-LAST:event_jcbOpcionesActionPerformed
-//hola
+    public void mostrarImagen(String urlImagen, int opcion, String cad) {
+        // ruta = urlImagen;
+        url = this.getClass().getResource(urlImagen);
+        icon = new ImageIcon(url);
+        //lblOpcion.setText(null);
+        lblOpcion.setIcon(icon);
+        lblOpcion.setText("SELECCIONASTE LA OPCIÓN " + opcion);
+        //lblOpcion.setText("Opcion: "+ opcion + "Texto:" + cad);
+
+    }
+
+    private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
+        // TODO add your handling code here:
+        int opc = lstListado.getSelectedIndex();
+
+        /* JOptionPane.showMessageDialog(null, "Opcion No " + opc,
+                "Opcion seleccionada",
+                JOptionPane.INFORMATION_MESSAGE); */
+        switch (opc) {
+            case -1:
+                /* JOptionPane.showMessageDialog(null, "Selecciona una opción",
+                        "ERROR", JOptionPane.ERROR_MESSAGE); */
+                JOptionPane.showMessageDialog(null, "Selecciona una opción",
+                        "ERROR", JOptionPane.WARNING_MESSAGE);
+                break;
+            case 0:
+                mostrarCuadro(opc + 1);
+                break;
+            case 1:
+                mostrarCuadro(opc + 1);
+                break;
+            case 2:
+                mostrarCuadro(opc + 1);
+                break;
+        }
+    }//GEN-LAST:event_btnListaActionPerformed
+    public void mostrarCuadro(int op) {
+        JOptionPane.showMessageDialog(null, "Opción No: " + op, "Opción seleccionada",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -142,9 +211,13 @@ public class Principal extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLista;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jcbOpciones;
     private javax.swing.JLabel lblOpcion;
+    private javax.swing.JList<String> lstListado;
     // End of variables declaration//GEN-END:variables
 }
