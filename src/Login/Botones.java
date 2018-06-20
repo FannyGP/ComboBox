@@ -7,7 +7,9 @@ package Login;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
     
 /**
@@ -31,6 +33,8 @@ double tot=0.0;
     public Botones() {
         initComponents();
         this.setLocationRelativeTo(this);
+        Calendar c2 = new GregorianCalendar();
+        datechocal.setCalendar(c2);
     }
 
     /**
@@ -66,18 +70,20 @@ double tot=0.0;
         btnLimpiar = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
         btnEnviar = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        datechocal = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(600, 400));
-        setPreferredSize(new java.awt.Dimension(600, 400));
         setSize(new java.awt.Dimension(600, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setMinimumSize(new java.awt.Dimension(600, 400));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -86,13 +92,16 @@ double tot=0.0;
 
         jPanel7.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 30));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51)), "TAMAÑO"));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        rbtnSencillo.setBackground(new java.awt.Color(255, 255, 255));
         btngTamano.add(rbtnSencillo);
         rbtnSencillo.setText("Sencillo $20");
         jPanel1.add(rbtnSencillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 33, -1, -1));
 
+        rbtnDoble.setBackground(new java.awt.Color(255, 255, 255));
         btngTamano.add(rbtnDoble);
         rbtnDoble.setText("Doble $30");
         rbtnDoble.addActionListener(new java.awt.event.ActionListener() {
@@ -102,26 +111,32 @@ double tot=0.0;
         });
         jPanel1.add(rbtnDoble, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 74, -1, -1));
 
+        rbtnJumbo.setBackground(new java.awt.Color(255, 255, 255));
         btngTamano.add(rbtnJumbo);
         rbtnJumbo.setText("Jumbo $45");
         jPanel1.add(rbtnJumbo, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 115, -1, -1));
 
-        jPanel7.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 170, 150));
+        jPanel7.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 170, 150));
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 255, 0)), "TOPPING"));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cbxChispas.setBackground(new java.awt.Color(255, 255, 255));
         cbxChispas.setText("Chispas $5");
         jPanel3.add(cbxChispas, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 23, -1, -1));
 
+        cbxCajeta.setBackground(new java.awt.Color(255, 255, 255));
         cbxCajeta.setText("Cajeta $10");
         jPanel3.add(cbxCajeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 49, -1, -1));
 
+        cbxGomitas.setBackground(new java.awt.Color(255, 255, 255));
         cbxGomitas.setText("Gomitas $15");
         jPanel3.add(cbxGomitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 75, -1, -1));
 
-        jPanel7.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 220, 150));
+        jPanel7.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 220, 150));
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 255)));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -135,19 +150,27 @@ double tot=0.0;
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 98, -1, -1));
 
         txtSubtotal.setEditable(false);
+        txtSubtotal.setBackground(new java.awt.Color(255, 255, 255));
+        txtSubtotal.setBorder(null);
         jPanel4.add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 19, 114, -1));
 
         txtIva.setEditable(false);
+        txtIva.setBackground(new java.awt.Color(255, 255, 255));
+        txtIva.setBorder(null);
         jPanel4.add(txtIva, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 57, 114, -1));
 
         txtTotal.setEditable(false);
+        txtTotal.setBackground(new java.awt.Color(255, 255, 255));
+        txtTotal.setBorder(null);
         jPanel4.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 95, 114, -1));
 
-        jPanel7.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 220, 160));
+        jPanel7.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 220, 160));
 
+        jPanel5.setBackground(null);
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnSuma.setBackground(null);
         btnSuma.setText("SUMA");
         btnSuma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,6 +179,7 @@ double tot=0.0;
         });
         jPanel5.add(btnSuma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 73, -1));
 
+        btnLimpiar.setBackground(null);
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,6 +188,7 @@ double tot=0.0;
         });
         jPanel5.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
 
+        btnCerrar.setBackground(null);
         btnCerrar.setText("CERRAR");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,6 +197,7 @@ double tot=0.0;
         });
         jPanel5.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
+        btnEnviar.setBackground(null);
         btnEnviar.setText("ENVIAR");
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,10 +206,14 @@ double tot=0.0;
         });
         jPanel5.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
-        jPanel7.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 230, 160));
+        jPanel7.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 230, 160));
 
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel7.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 120, 50));
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FECHA"));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel8.add(datechocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 140, 30));
+
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 160, 60));
 
         getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 400));
 
@@ -348,6 +378,7 @@ double tot=0.0;
     private javax.swing.JCheckBox cbxCajeta;
     private javax.swing.JCheckBox cbxChispas;
     private javax.swing.JCheckBox cbxGomitas;
+    private com.toedter.calendar.JDateChooser datechocal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -357,8 +388,8 @@ double tot=0.0;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JRadioButton rbtnDoble;
     private javax.swing.JRadioButton rbtnJumbo;
     private javax.swing.JRadioButton rbtnSencillo;
